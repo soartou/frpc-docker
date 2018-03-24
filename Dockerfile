@@ -1,8 +1,8 @@
 FROM alpine:edge
 
-COPY frpc /usr/local/bin/
+ADD frpc /usr/local/bin/
 RUN chmod +x /usr/local/bin/frpc
 RUN mkdir /etc/frp
-COPY frpc.ini /etc/frp/
+ADD frpc.ini /etc/frp/
 
 CMD ["frpc", "-c", "/etc/frp/frpc.ini"]
