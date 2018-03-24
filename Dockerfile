@@ -1,5 +1,7 @@
 FROM alpine:edge
 
+RUN apk update && apk add tzdata \
+    && cp -r -f /usr/share/zoneinfo/Hongkong /etc/localtime \
 ADD frpc /usr/local/bin/
 RUN chmod +x /usr/local/bin/frpc
 ADD frpc.ini /etc/frp/
